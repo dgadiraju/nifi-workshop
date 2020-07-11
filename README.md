@@ -14,6 +14,8 @@ As part of the first demo, I will demonstrate key capabilities.
 * Understanding how to access the documentation
 * Simple pipeline to copy files from Local File System and HDFS
 
+https://youtu.be/6ZwQPE6ExlY
+
 However, there are quite a few advanced capabilities which I will be covering as part of the Tech Workshop Series on Mondays (6 to 8 Sessions):
 
 * Setting up of NiFi in a single node.
