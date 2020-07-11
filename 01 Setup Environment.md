@@ -9,6 +9,8 @@ As part of this session we will see how to setup environment to practice NiFi in
 * Setup and Validate Spark
 * Setup and Start NiFi
 
+The content will be free, however if you want to watch videos to understand key concepts feel free to [join our YouTube Channel as a member](https://www.youtube.com/channel/UCakdSIPsJqiOLqylgoYmwQg/join).
+
 ## Provision Server from AWS
 
 ## Setup Pre-Requisites
