@@ -12,6 +12,15 @@ As part of this session we will see how to setup environment to practice NiFi in
 The content will be free, however if you want to watch videos to understand key concepts feel free to [join our YouTube Channel as a member](https://www.youtube.com/channel/UCakdSIPsJqiOLqylgoYmwQg/join).
 
 ## Provision Server from AWS
+Let us understand how to provision server from AWS quickly so that we can setup single node Big Data Cluster to practice key technologies such as Spark, NiFi, Kafka etc.
+
+* Operating System - Centos 7
+* Instance Type - **t2x.large** (4 vCores and 16 GB RAM).
+* Root File System size - 60 GB
+* Make sure elastic ip is configured as we will be stopping EC2 instance frequently.
+* Make sure to understand the pricing.
+
+Even though demo is given on AWS, you can use server with similar configuration from any cloud platform or bare metal servers.
 
 ## Setup Pre-Requisites
 Let us setup some of the pre-requisites required to setup Hadoop, Spark, NiFi etc on a single node.
@@ -110,6 +119,17 @@ hdfs dfs -cat /user/centos/core-site.xml
 ```
 
 ## Setup and Validate Spark
+Let us understand how to setup and validate Spark. We will be using YARN to submit Spark Jobs for our practice.
+
+* Download Spark 2.4.6 Version.
+* Update Spark Configuration files.
+* Validate Spark using Scala by running `spark-shell --master yarn --conf spark.ui.port=0`.
+* Validate Spark using Python by running `pyspark --master yarn --conf spark.ui.port=0`. Make sure to export PYSPARK_PYTHON to point to Python 3 if the default version is 2.7.
+```
+export PYSPARK_PYTHON=python3
+pyspark --master yarn --conf spark.ui.port=0
+```
+* Validate Spark SQL by running `spark-sql --master yarn --conf spark.ui.port=0`.
 
 ## Setup and Start NiFi
 
