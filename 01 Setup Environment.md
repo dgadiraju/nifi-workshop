@@ -38,4 +38,9 @@ sudo mv -f nifi-1.11.4 /opt
 sudo chown centos:centos -R /opt/nifi-1.11.4
 sudo ln -s /opt/nifi-1.11.4 /opt/nifi
 ```
-* Configure JAVA_HOME as part of /opt/nifi/conf/bootstrap.conf
+
+## Setup Datasets
+
+Let us go ahead and setup retail_db dataset to get started with NiFi.
+
+Please go to this [page](https://www.github.com/dgadiraju/retail_db.git) and take care of setting up retail_db data set.
