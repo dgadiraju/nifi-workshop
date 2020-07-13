@@ -37,6 +37,8 @@ Here are the design patterns with respect to gettig data from files to flowfiles
 * Get (GetFile)
 We can get data from local file system, HDFS, AWS S3, Azure Blob, SFTP and many more.
 
+Flowfiles can also be saved to Files in all supported file systems.
+
 ## Build Generic Pipeline
 
 Here are the instructions building generic pipeline.
@@ -47,6 +49,7 @@ Here are the instructions building generic pipeline.
 ```
 ${absolute.path:substringBeforeLast('/'):substringAfterLast('/')}
 ```
+* Use PutHDFS to save the files in the HDFS. We can simulate source directory structure while writing data to target file system.
 
 ## Quick Overview of NiFi Expression Language
 
