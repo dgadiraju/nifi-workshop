@@ -15,7 +15,7 @@ As part of the first demo, I will demonstrate key capabilities.
 * Simple pipeline to copy files from Local File System and HDFS
 
 Here is the video of the session, which will be available after the session is complete.
-https://youtu.be/6ZwQPE6ExlY
+[![Stay tuned for NiFi Series](http://img.youtube.com/vi/6ZwQPE6ExlY/0.jpg)](http://www.youtube.com/watch?v=6ZwQPE6ExlY "Data Ingestion using NiFi - Quick Overview")
 
 However, there are quite a few advanced capabilities which I will be covering as part of the Tech Workshop Series on Mondays (6 to 8 Sessions):
 
