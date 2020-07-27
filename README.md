@@ -6,12 +6,15 @@ NiFi is one of the key tools in the area of Data Engineering and Big Data. It is
 
 Here is the link to become member of ITVersity Channel - https://youtube.com/itversityin/join
 
-As part of the first demo, I will demonstrate key capabilities.
+As part of the first demo, I will discuss and demonstrate about NiFi key capabilities.
 
 * Overview of NiFi
 * Understanding NiFi Layout as a service
 * Key Concepts such as Flow Files, Attributes etc
 * Understanding how to access the documentation
+* Capabilities of NiFi as a Data Ingestion Tool
+* NiFi vs. Traditional ETL Tools
+* Role of NiFi in Data Engineering at Scale
 * Simple pipeline to copy files from Local File System and HDFS
 
 Here is the video of the session, which will be available after the session is complete.
