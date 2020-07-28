@@ -6,7 +6,7 @@ NiFi is one of the key tools in the area of Data Engineering and Big Data. It is
 
 Click [here](https://www.youtube.com/channel/UCakdSIPsJqiOLqylgoYmwQg/join) to become member for ITVersity Channel
 
-As part of the first demo, I will discuss and demonstrate about NiFi key capabilities.
+As part of the first demo, I will discuss and demonstrate about NiFi key capabilities. You can download the presentation from [here](https://www.slideshare.net/durgavgadiraju/data-ingestion-using-nifi-quick-overview).
 
 * Overview of NiFi
 * Understanding NiFi Layout as a service
