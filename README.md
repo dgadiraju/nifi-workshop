@@ -1,10 +1,10 @@
 # Data Ingestion using NiFi
 
-We are glad to come up with Tech Series on Mondays where we will be talking about a particular topic between 4 to 8 weeks. Some of them will be free and some of them will be paid. In case you want to get notified in case of events, please sign up to our Meetup group - https://www.meetup.com/itversityin/
+We are glad to come up with Tech Series on Mondays where we will be talking about a particular topic between 4 to 8 weeks. Some of them will be free and some of them will be paid. In case you want to get notified in case of events, please sign up to our [Meetup group](https://www.meetup.com/itversityin/)
 
 NiFi is one of the key tools in the area of Data Engineering and Big Data. It is primarily used for Data Ingestion and Orchestration. As part of 6 to 8 workshops between August and September, you will be learning key capabilities. Live sessions will be free and pre-recorded videos will be available exclusively for members of our YouTube channel.
 
-Here is the link to become member of ITVersity Channel - https://youtube.com/itversityin/join
+Click [here](https://www.youtube.com/channel/UCakdSIPsJqiOLqylgoYmwQg/join) to become member for ITVersity Channel
 
 As part of the first demo, I will discuss and demonstrate about NiFi key capabilities.
 
