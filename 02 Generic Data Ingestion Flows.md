@@ -11,6 +11,9 @@ Let us understand how to build Generic Data Ingestion flows in this session.
 
 The content will be free, however if you want to watch videos to understand key concepts feel free to [join our YouTube Channel as a member](https://www.youtube.com/channel/UCakdSIPsJqiOLqylgoYmwQg/join).
 
+[![NiFi - Building Generic Data Flows](http://img.youtube.com/vi/iZQI-i8PWY4/0.jpg)](http://www.youtube.com/watch?v=iZQI-i8PWY4 "NiFi - Building Generic Data Flows")
+
+
 ## Recap of simple pipeline
 Earlier we have understood simple data ingestion pipeline using NiFi.
 * Processor Group
