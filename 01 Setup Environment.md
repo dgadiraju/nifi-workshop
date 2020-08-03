@@ -13,7 +13,11 @@ The content will be free, however if you want to watch videos to understand key 
 
 All the instructions that are related to provisionsing server from AWS, Setup Hadoop, Spark etc are covered as part of [Setup Development Environment for Spark](https://github.com/dgadiraju/itversity-books/blob/master/Data%20Engineering%20Bootcamp/46%20Apache%20Spark%20using%20Python/00%20Setup%20Development%20Environment.md).
 
-You can also find the videos for the same in the above page.
+Here are the videos as well for instructions to setup Hadoop and Spark on Centos 7 based machine as a single node cluster.
+
+[![Data Engineering - Setup Development Environment](http://img.youtube.com/vi/Z4pDhBaWB64/0.jpg)](http://www.youtube.com/watch?v=Z4pDhBaWB64 "Data Engineering - Setup Development Environment")
+
+[![Data Engineering - Setup Development Environment](http://img.youtube.com/vi/jcdAO90yY2U/0.jpg)](http://www.youtube.com/watch?v=jcdAO90yY2U "Data Engineering - Setup Development Environment (Contd...)")
 
 ## Setup and Start NiFi
 
