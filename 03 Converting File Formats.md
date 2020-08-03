@@ -10,6 +10,8 @@ As part of data ingestion process, we might have to convert file format with out
 * Overview of Schema Registry
 * Passing Avro Schema
 
+The content will be free, however if you want to watch videos to understand key concepts feel free to [join our YouTube Channel as a member](https://www.youtube.com/channel/UCakdSIPsJqiOLqylgoYmwQg/join).
+
 [![NiFi - Convert File Formats](http://img.youtube.com/vi/N2iggpbaw90/0.jpg)](http://www.youtube.com/watch?v=N2iggpbaw90 "NiFi - Convert File Formats")
 
 
