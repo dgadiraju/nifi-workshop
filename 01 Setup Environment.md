@@ -8,6 +8,8 @@ As part of this session we will see how to setup environment to practice NiFi in
 * Start and Validate Hadoop Components
 * Setup and Validate Spark
 * Setup and Start NiFi
+* Understanding NiFi Layout
+* Validating NiFi
 
 The content will be free, however if you want to watch videos to understand key concepts feel free to [join our YouTube Channel as a member](https://www.youtube.com/channel/UCakdSIPsJqiOLqylgoYmwQg/join).
 
@@ -38,16 +40,23 @@ sudo mv -f nifi-1.11.4 /opt
 sudo chown centos:centos -R /opt/nifi-1.11.4
 sudo ln -s /opt/nifi-1.11.4 /opt/nifi
 ```
+## Understanding NiFi Layout
+Here are the details about NiFi software layout in our environment.
+* It is configured under **/opt/nifi**
+* Configurations are available under **/opt/nifi/conf**
+  * bootstrap.conf
+  * nifi.properties
+* Executables are under **/opt/nifi/bin**
+* Logs are being generated under **/opt/nifi/logs**
+* The default file is **/opt/nifi/logs/nifi-app.log**
 
-## Setup Datasets
+## Validating NiFi
 
-Let us go ahead and setup retail_db dataset to get started with NiFi.
+We can manage NiFi using a shell script called as **nifi.sh** under **/opt/nifi/bin**.
+* Make sure **/opt/nifi/bin** is added to environment variable **PATH**
+* Starting NiFi - `nifi.sh start`
+* Stopping NiFi - `nifi.sh stop`
+* Checking Status - `nifi.sh status`
+* Once NiFi is started we can go to the URL using configured port and see NiFi Web UI is coming up or not.
+* If you are using AWS, make sure the security group is updated with the port number or whitelist the ip address from which you want to access NiFi Web UI.
 
-Please go to this [page](https://www.github.com/dgadiraju/retail_db.git) and take care of setting up retail_db data set.
-
-* In my case I have setup retail_db dataset under /data folder on the server where we have setup NiFi.
-```
-sudo mkdir /data
-sudo chown -R centos:centos /data
-git clone https://www.github.com/dgadiraju/retail_db.git /data/retail_db
-```
