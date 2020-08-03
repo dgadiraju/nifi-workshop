@@ -10,6 +10,9 @@ As part of data ingestion process, we might have to convert file format with out
 * Overview of Schema Registry
 * Passing Avro Schema
 
+[![NiFi - Convert File Formats](http://img.youtube.com/vi/N2iggpbaw90/0.jpg)](http://www.youtube.com/watch?v=N2iggpbaw90 "NiFi - Convert File Formats")
+
+
 ## General Guidelines
 We might get files from different source systems using different File Formats into the landing zone on File Server or HDFS. However we tend to standardize the file formats in the data lake.
 * Typical File Formats from sources - Delimited Text Files with Header
