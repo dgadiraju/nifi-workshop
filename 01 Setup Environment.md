@@ -21,7 +21,12 @@ Here are the videos as well for instructions to setup Hadoop and Spark on Centos
 
 [![Data Engineering - Setup Development Environment](http://img.youtube.com/vi/jcdAO90yY2U/0.jpg)](http://www.youtube.com/watch?v=jcdAO90yY2U "Data Engineering - Setup Development Environment (Contd...)")
 
-## Setup and Start NiFi
+## Pre-recorded Video
+Here is the pre-recorded video covering the material published here.
+
+[![Setup NiFi Development Environment](http://img.youtube.com/vi/NkGzXE88D3E/0.jpg)](http://www.youtube.com/watch?v=NkGzXE88D3E "Setup NiFi Development Environment")
+
+## Setup NiFi
 
 Here are the instructions to setup and start NiFi.
 
