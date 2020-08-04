@@ -59,4 +59,13 @@ We can manage NiFi using a shell script called as **nifi.sh** under **/opt/nifi/
 * Checking Status - `nifi.sh status`
 * Once NiFi is started we can go to the URL using configured port and see NiFi Web UI is coming up or not.
 * If you are using AWS, make sure the security group is updated with the port number or whitelist the ip address from which you want to access NiFi Web UI.
+* Make sure to check the log messages generated at **/opt/nifi/logs/nifi-app.log** so that we get comfortable in case of any errors at a later point in time.
+
+## Running Simple Pipeline
+
+Let us run a simple pipeline as well to ensure that NiFi is working as expected.
+* Download this [NiFi Simple Pipeline](https://github.com/dgadiraju/nifi-workshop/blob/master/Data_Ingestion_using_NiFi_-_Simple_Pipeline_-_Demo.xml) from our GitHub Repository.
+* Upload it using NiFi UI
+* Review processors and the locations that are used against the setup.
+* Run and validate to see if the data is flowing as expected.
 
