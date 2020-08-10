@@ -7,6 +7,8 @@ Let us understand how to build Generic Data Ingestion flows in this session.
 * Recap of Flowfiles and Attributes
 * Overview of Scheduling
 * Files to Flowfiles - Options
+* Copying Flowfiles to Files
+* Deleting Files
 * Build Generic Pipeline
 * Quick Overview of NiFi Expression Language
 
