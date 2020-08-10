@@ -83,14 +83,14 @@ We can also delete files from any standard file system using **Delete** Processo
 ## Build Generic Pipeline
 
 Here are the instructions building generic pipeline.
-* Use listFile to get the files recursively.
+* Use **ListFile** to get the files recursively.
 * Configure Age Attributes as per requirement.
-* Use fetchFile to fetch files.
+* Use **FetchFile** to fetch files.
 * Update attribute to define target location using Update Attribute Processor. We can use NiFi Expression Language for the same.
 ```
 ${absolute.path:substringBeforeLast('/'):substringAfterLast('/')}
 ```
-* Use PutHDFS to save the files in the HDFS. We can simulate source directory structure while writing data to target file system.
+* Use **PutHDFS** to save the files in the HDFS. We can simulate source directory structure while writing data to target file system.
 
 ## Quick Overview of NiFi Expression Language
 
