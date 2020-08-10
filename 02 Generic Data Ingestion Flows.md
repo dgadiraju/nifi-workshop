@@ -82,7 +82,10 @@ We can also delete files from any standard file system using **Delete** Processo
 
 ## Build Generic Pipeline
 
-Here are the instructions building generic pipeline.
+We will be building multiple pipelines to understand different design patterns.
+
+#### ListFile + FetchFile -> HDFS
+Here is how we can build pipeline to get the files from local file system to HDFS.
 * Use **ListFile** to get the files recursively.
 * Configure Age Attributes as per requirement.
 * Use **FetchFile** to fetch files.
@@ -91,6 +94,41 @@ Here are the instructions building generic pipeline.
 ${absolute.path:substringBeforeLast('/'):substringAfterLast('/')}
 ```
 * Use **PutHDFS** to save the files in the HDFS. We can simulate source directory structure while writing data to target file system.
+* We need to pass HDFS configuration files to **PutHDFS**. In some cases we might have to provide **classpaths** as well.
+
+#### ListFile + FetchFile -> HDFS with Archival Strategy
+Here is how we can build pipeline to get the files from local file system to HDFS with archival strategy. All the files that are fetched from local folder **/data/retail_db** should be moved to **/archive/retail_db**.
+* Use **ListFile** to get the files recursively.
+* Configure Age Attributes as per requirement.
+* Use **FetchFile** to fetch files. We can configure achival strategy using **Completion Strategy**
+  * Set **Completion Strategy** to **Move File**.
+  * Set the path to which the files should be moved to. For this you can use expression `${absolute.path:replaceFirst('/data/', '/archive/')}` for **Move Destination Directory**.
+* Update attribute to define target location using Update Attribute Processor. We can use NiFi Expression Language for the same.
+```
+${absolute.path:substringBeforeLast('/'):substringAfterLast('/')}
+```
+* Use **PutHDFS** to save the files in the HDFS. We can simulate source directory structure while writing data to target file system.
+* We need to pass HDFS configuration files to **PutHDFS**. In some cases we might have to provide **classpaths** as well.
+
+#### GetFile -> HDFS with Archival Strategy.
+Here is how we can build pipeline to get the files from local file system to HDFS with archival strategy. All the files that are fetched from local folder **/data/retail_db** should be moved to **/archive/retail_db**.
+* Use **GetFile** to get the files recursively.
+* Configure Age Attributes as per requirement.
+* Set **Keep Source File** to **false**. If not **GetFile** read all the files every time.
+* Create a branch **PutFile** to specify the path to which the files should be copied to for archival process.
+* Use **PutHDFS** to save the files in the HDFS. We can simulate source directory structure while writing data to target file system by using NiFi expression language.
+```
+/user/centos/get/retail_db/${absolute.path:substringBeforeLast('/'):substringAfterLast('/')}
+```
+* We need to pass HDFS configuration files to **PutHDFS**. In some cases we might have to provide **classpaths** as well.
+
+#### ListHDFS + FetchHDFS -> Local File System
+In some cases, we might have to copy the data from HDFS to local file system.
+* We can also use **GetHDFS** in place of **ListHDFS + FetchHDFS**, however we need to ensure that we have archival strategy as **GetHDFS** does not maintain the state and will read all the files in the source directory.
+* We can use **PutFile** to copy files to the target location - **/data/fromhdfs/retail_db**. Here is the code using NiFi expression language to update the path dynamically.
+```
+${path:replace('/user/centos/', '/data/fromhdfs/')}
+```
 
 ## Quick Overview of NiFi Expression Language
 
