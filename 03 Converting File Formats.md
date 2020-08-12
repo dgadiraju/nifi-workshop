@@ -2,8 +2,9 @@
 
 As part of data ingestion process, we might have to convert file format with out performing any transformations over data. In this module we will explore options in NiFi about File Format conversion.
 
+* Pre-requisites
 * General Guidelines
-* Analyzing Data
+* Setp and Analyze Data
 * Design NiFi Flow
 * Configuring Reader and Writer
 * Converting CSV to JSON
@@ -14,6 +15,17 @@ The content will be free, however if you want to watch videos to understand key 
 
 [![NiFi - Convert File Formats](http://img.youtube.com/vi/N2iggpbaw90/0.jpg)](http://www.youtube.com/watch?v=N2iggpbaw90 "NiFi - Convert File Formats")
 
+## Pre-requisites
+Here are the pre-requisites before we get into the session. We will be using single node development server to explore NiFi in-depth.
+* We are supposed to have an environment where Hadoop and NiFi are setup.
+* Run `jps` to ensure whether HDFS Components and NiFi are running or not.
+* In case if HDFS and NiFi processes are not running, run following commands to get the environment ready.
+```
+start-dfs.sh
+start-yarn.sh
+nifi.sh start
+# You can run jps and see if all the Java processes related to HDFS and NiFi are running or not.
+```
 
 ## General Guidelines
 We might get files from different source systems using different File Formats into the landing zone on File Server or HDFS. However we tend to standardize the file formats in the data lake.
@@ -27,13 +39,25 @@ We might get files from different source systems using different File Formats in
 * We can use processors such as **ConvertRecord** to convert data from one file format to another with out manipulating the data.
 * If we get the data in text file format with header, we can leverage the header to infer the column names while converting the file formats.
   
-## Analyzing Data
-Let us analyze and understand characteristics of data before converting and loading data into HDFS.
-* We will be using **/data/citibike/tripdata**
-* Files are downloaded from [s3 bucket](https://s3.amazonaws.com/tripdata) provided by [official citibike](https://www.citibikenyc.com/system-data) website.
-* Data is in the form of CSV and also compressed using Zip.
-* Each file have header and we should be able to extract column names from the header.
-* You can observe that there is one file per month.
+## Setup and Analyze Data
+We will use citibike data set on top of retail_db data set for this session. You can get citibike data set from this [location](https://s3.amazonaws.com/tripdata/index.html).
+* We can use `wget` to download the data.
+* You can find that there are 2 patterns to the data set. We can build wget command using range of months rather than downloading one file at a time.
+  * yyyyMM-citibike-tripdata.zip -> 20{13..16}{01..12}-citibike-tripdata.zip
+  * yyyyMM-citibike-tripdata.csv.zip -> 20{17..20}{01..12}-citibike-tripdata.csv.zip
+* Here are the commands to download the data for all the months. We will be downloading the data into `/data/citibike/trips`.
+```
+mkdir -p /data/citibike && cd /data/citibike
+wget https://s3.amazonaws.com/tripdata/20{13..16}{01..12}-citibike-tripdata.zip
+wget https://s3.amazonaws.com/tripdata/20{17..20}{01..12}-citibike-tripdata.csv.zip
+```
+* Now let us unzip the data and understand how the data look like. We will be reviewing 2 files (201401 and 202001}
+  * Run `unzip 201401-citibike-tripdata.zip` and review the characteristics of the data.
+  * Run `unzip 202001-citibike-tripdata.csv.zip` and review the characteristics of the data.
+* Here are the details about our data.
+  * Data contains header.
+  * Underlying file names after unzipping following different naming convention.
+  * There are some system files generated and they are supposed to be ignored before ingestion of data into the Data Lake or Data Hub.
 
 ## Design NiFi Flow
 Let us come up with all the processors that are required to get the data from CSV to JSON using citibike data.
