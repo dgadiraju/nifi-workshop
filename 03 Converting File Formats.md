@@ -55,6 +55,14 @@ wget https://s3.amazonaws.com/tripdata/20{17..20}{01..12}-citibike-tripdata.csv.
   * Make sure to install unzip using `sudo yum -y install unzip` on Centos or RedHat based machines. You can use `apt` on Ubuntu based machines.
   * Run `unzip 201306-citibike-tripdata.zip` and review the characteristics of the data.
   * Run `unzip 202001-citibike-tripdata.csv.zip` and review the characteristics of the data.
+  * We can also run below script to uncompress all the files to understand the details of the files that are compressed.
+```
+ls -1 *.zip|while read LINE
+do
+  unzip -u $LINE
+done
+```
+  * Once you analyze, you can cleanup the uncompressed files by saying `rm *.csv`.
 * Here are the details about our data.
   * Data contains header.
   * Underlying file names after unzipping following different naming convention.
