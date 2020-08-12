@@ -62,7 +62,7 @@ do
   unzip -u $LINE
 done
 ```
-  * Once you analyze, you can cleanup the uncompressed files by saying `rm *.csv`.
+  * Once you analyze, you can cleanup the uncompressed files by saying `rm *.csv && rm -rf __MACOSX`.
 * Here are the details about our data.
   * Data contains header.
   * Underlying file names after unzipping following different naming convention.
