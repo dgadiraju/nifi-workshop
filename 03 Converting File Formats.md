@@ -52,7 +52,7 @@ wget https://s3.amazonaws.com/tripdata/20{13..16}{01..12}-citibike-tripdata.zip
 wget https://s3.amazonaws.com/tripdata/20{17..20}{01..12}-citibike-tripdata.csv.zip
 ```
 * Now let us unzip the data and understand how the data look like. We will be reviewing 2 files (201401 and 202001}
-  * Make sure to install unzip using `yum -y install unzip` on Centos or RedHat based machines. You can use `apt` on Ubuntu based machines.
+  * Make sure to install unzip using `sudo yum -y install unzip` on Centos or RedHat based machines. You can use `apt` on Ubuntu based machines.
   * Run `unzip 201401-citibike-tripdata.zip` and review the characteristics of the data.
   * Run `unzip 202001-citibike-tripdata.csv.zip` and review the characteristics of the data.
 * Here are the details about our data.
