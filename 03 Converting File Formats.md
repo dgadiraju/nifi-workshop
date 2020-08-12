@@ -47,7 +47,7 @@ We will use citibike data set on top of retail_db data set for this session. You
   * yyyyMM-citibike-tripdata.csv.zip -> 20{17..20}{01..12}-citibike-tripdata.csv.zip
 * Here are the commands to download the data for all the months. We will be downloading the data into `/data/citibike/trips`.
 ```
-mkdir -p /data/citibike && cd /data/citibike
+mkdir -p /data/citibike/trips && cd /data/citibike/trips
 wget https://s3.amazonaws.com/tripdata/20{13..16}{01..12}-citibike-tripdata.zip
 wget https://s3.amazonaws.com/tripdata/20{17..20}{01..12}-citibike-tripdata.csv.zip
 ```
