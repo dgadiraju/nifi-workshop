@@ -71,8 +71,10 @@ done
 ## Design NiFi Flow
 Let us come up with all the processors that are required to get the data from CSV to JSON using citibike data.
 * ListFile - list the files in the local file system on the server where NiFi is running.
+* UpdateAttribute - capture the original path and file name (without extension) so that we can standardize the naming convention.
 * FetchFile - fetch the files so that the files are converted downstream to JSON and placed in HDFS.
 * UnpackContent - as files are zipped, we need to unzip before we convert the file format.
+* RouteOnAttribute - to ignore system folders or files (folders with name **__MACOSX**)
 * ConvertRecord - processor to convert each and every record in input file to target format (JSON)
 * UpdateAttribute - to set the filename with appropriate file name and right extension.
 * PutHDFS - to place the files in HDFS.
