@@ -67,7 +67,76 @@ done
   * Data contains header.
   * Underlying file names after unzipping following different naming convention.
   * There are some system files generated and they are supposed to be ignored before ingestion of data into the Data Lake or Data Hub.
-
+* Here is the **avro** schema for our data. We will use it at a later point in time.
+```
+{
+  "name": "CitibikeTrip",
+  "type": "record",
+  "namespace": "com.acme.avro",
+  "fields": [
+    {
+      "name": "tripduration",
+      "type": "int"
+    },
+    {
+      "name": "starttime",
+      "type": "string"
+    },
+    {
+      "name": "stoptime",
+      "type": "string"
+    },
+    {
+      "name": "start_station_id",
+      "type": "string"
+    },
+    {
+      "name": "start_station_name",
+      "type": "string"
+    },
+    {
+      "name": "start_station_latitude",
+      "type": "float"
+    },
+    {
+      "name": "start_station_longitude",
+      "type": "float"
+    },
+    {
+      "name": "end_station_id",
+      "type": "string"
+    },
+    {
+      "name": "end_station_name",
+      "type": "string"
+    },
+    {
+      "name": "end_station_latitude",
+      "type": "float"
+    },
+    {
+      "name": "end_station_longitude",
+      "type": "float"
+    },
+    {
+      "name": "bikeid",
+      "type": "int"
+    },
+    {
+      "name": "usertype",
+      "type": "string"
+    },
+    {
+      "name": "birth_year",
+      "type": "int"
+    },
+    {
+      "name": "gender",
+      "type": "int"
+    }
+  ]
+}
+```
 ## Design NiFi Flow
 Let us come up with all the processors that are required to get the data from CSV to JSON using citibike data.
 * ListFile - list the files in the local file system on the server where NiFi is running.
