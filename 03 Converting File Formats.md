@@ -76,63 +76,63 @@ done
   "fields": [
     {
       "name": "tripduration",
-      "type": "int"
+      "type": ["int", "null"]
     },
     {
       "name": "starttime",
-      "type": "string"
+      "type": ["string", "null"]
     },
     {
       "name": "stoptime",
-      "type": "string"
+      "type": ["string", "null"]
     },
     {
       "name": "start_station_id",
-      "type": "string"
+      "type": ["string", "null"]
     },
     {
       "name": "start_station_name",
-      "type": "string"
+      "type": ["string", "null"]
     },
     {
       "name": "start_station_latitude",
-      "type": "float"
+      "type": ["float", "null"]
     },
     {
       "name": "start_station_longitude",
-      "type": "float"
+      "type": ["float", "null"]
     },
     {
       "name": "end_station_id",
-      "type": "string"
+      "type": ["string", "null"]
     },
     {
       "name": "end_station_name",
-      "type": "string"
+      "type": ["string", "null"]
     },
     {
       "name": "end_station_latitude",
-      "type": "float"
+      "type": ["float", "null"]
     },
     {
       "name": "end_station_longitude",
-      "type": "float"
+      "type": ["float", "null"]
     },
     {
       "name": "bikeid",
-      "type": "int"
+      "type": ["int", "null"]
     },
     {
       "name": "usertype",
-      "type": "string"
+      "type": ["string", "null"]
     },
     {
       "name": "birth_year",
-      "type": "int"
+      "type": ["int", "null"]
     },
     {
       "name": "gender",
-      "type": "int"
+      "type": ["int", "null"]
     }
   ]
 }
