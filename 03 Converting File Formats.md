@@ -64,7 +64,10 @@ done
 ```
   * Once you analyze, you can cleanup the uncompressed files by saying `rm *.csv && rm -rf __MACOSX`.
 * Here are the details about our data.
-  * Data contains header.
+  * Data contains header. However header is not uniform across all files.
+    * Examples: 201703 and 201704
+  * **birthyear** have nulls and nulls are represented as **NULL** or **\N**
+    * Examples: 201306 and 201401
   * Underlying file names after unzipping following different naming convention.
   * There are some system files generated and they are supposed to be ignored before ingestion of data into the Data Lake or Data Hub.
 * Here is the **avro** schema for our data. We will use it at a later point in time.
@@ -138,8 +141,8 @@ done
 }
 ```
 ## Design NiFi Flow
-Let us come up with all the processors that are required to get the data from CSV to JSON using citibike data.
-* ListFile - list the files in the local file system on the server where NiFi is running.
+Let us come up with all the processors that are required to get the data from CSV to JSON using citibike data. We will validate using 2019 data set.
+* ListFile - list the files in the local file system on the server where NiFi is running. Add filter to process the files belonging to **2019**.
 * UpdateAttribute - capture the original path and file name (without extension) so that we can standardize the naming convention.
 * FetchFile - fetch the files so that the files are converted downstream to JSON and placed in HDFS.
 * UnpackContent - as files are zipped, we need to unzip before we convert the file format.
@@ -148,11 +151,31 @@ Let us come up with all the processors that are required to get the data from CS
 * UpdateAttribute - to set the filename with appropriate file name and right extension.
 * PutHDFS - to place the files in HDFS.
 
+Let us validated by reading the data using Pyspark.
+```
+trips = spark. \
+    read. \
+    json('/user/training/json/citibike/trips/2019*')
+trips.printSchema()
+trips.count()
+trips.show()
+```
+
+Here is the code snippet using Scala.
+```
+trips = spark.
+    read.
+    json("/user/training/json/citibike/trips/2019*')
+trips.printSchema
+trips.count
+trips.show
+```
+
 ## Configuring Reader and Writer
 Let us understand how to configure the reader and writer while converting the file formats before ingesting data into the data lake.
 * We can use CSVReader controller service to read the data from CSV Files.
 * We need to configure the controller service based up on the observations.
-  * Schema Access Strategy - Infer Schema
+  * Schema Access Strategy - **Infer Schema** or 
   * Treat first line as header - True
 * Make sure to enable the controller service
 * We can use JSONRecordSetWriter controller service to convert each record into JSON document.
