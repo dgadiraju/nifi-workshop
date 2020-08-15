@@ -151,26 +151,6 @@ Let us come up with all the processors that are required to get the data from CS
 * UpdateAttribute - to set the filename with appropriate file name and right extension.
 * PutHDFS - to place the files in HDFS.
 
-Let us validated by reading the data using Pyspark.
-```
-trips = spark. \
-    read. \
-    json('/user/training/json/citibike/trips/2019*')
-trips.printSchema()
-trips.count()
-trips.show()
-```
-
-Here is the code snippet using Scala.
-```
-trips = spark.
-    read.
-    json("/user/training/json/citibike/trips/2019*')
-trips.printSchema
-trips.count
-trips.show
-```
-
 ## Configuring Reader and Writer
 Let us understand how to configure the reader and writer while converting the file formats before ingesting data into the data lake.
 * We can use CSVReader controller service to read the data from CSV Files.
@@ -190,5 +170,42 @@ As we are done with ConvertRecord with Reader and Writer, we can take care of re
 * Make sure all the properties are set in PutHDFS to write the data into HDFS.
 * As the data size is in GBs, we can consider compression while placing the files in HDFS.
 * Once we make the changes let us see data flowing from input path to the target folder in the form of JSON files.
+
+## Validate Ingested Data
+Let us validated by reading the data using Pyspark.
+```
+trips = spark. \
+    read. \
+    json('/user/training/json/citibike/trips/2019*')
+trips.printSchema()
+trips.count()
+trips.show()
+```
+
+Here is the code snippet using Scala.
+```
+trips = spark.
+    read.
+    json("/user/training/json/citibike/trips/2019*')
+trips.printSchema
+trips.count
+trips.show
+```
 ## Overview of Schema Registry
+Here are the details about Schema Registry.
+* Even though we can hard code the schema, we should avoid it to make our flows generic.
+* We can integrate several Schema Registries.
+  * Kafka Schema Registry
+  * Hortonworks Schema Registry
+  * and more
+As we need to have additional services, for this demo we will be passing schema hard coded instead of leveraging schema registry.
+
 ## Passing Avro Schema
+Let us understand how to pass hard coded schema for controller services related to file formats.
+* We can directly place the schema as Schema Text.
+* We can also add as variable.
+* As we configure schema with processors like ConvertRecord, the schema will be applied for each and every record.
+* For ConvertRecord, we can apply schema both while reading as well as writing.
+* In case of CSV, we can pass the schema as header.
+
+## CSV to Parquet with Schema
