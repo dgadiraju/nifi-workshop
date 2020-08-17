@@ -4,7 +4,7 @@ As part of data ingestion process, we might have to convert file format with out
 
 * Pre-requisites
 * General Guidelines
-* Setp and Analyze Data
+* Setup and Analyze Data
 * Design NiFi Flow
 * Configuring Reader and Writer
 * Converting CSV to JSON
