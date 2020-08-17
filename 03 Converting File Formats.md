@@ -8,8 +8,10 @@ As part of data ingestion process, we might have to convert file format with out
 * Design NiFi Flow
 * Configuring Reader and Writer
 * Converting CSV to JSON
+* Validate Ingested Data
 * Overview of Schema Registry
 * Passing Avro Schema
+* CSV to Parquet with Schema
 
 The content will be free, however if you want to watch videos to understand key concepts feel free to [join our YouTube Channel as a member](https://www.youtube.com/channel/UCakdSIPsJqiOLqylgoYmwQg/join).
 
@@ -209,3 +211,19 @@ Let us understand how to pass hard coded schema for controller services related 
 * In case of CSV, we can pass the schema as header.
 
 ## CSV to Parquet with Schema
+Parquet is one of the industry standard file format that is used in Data Lakes or Big Data Clusters. Let us understand how we can convert our CSV data to Parquet with Schema.
+* Why Schema when we have header?
+  * The column names are not same in all the files.
+  * By using Schema we can make sure that all the records have same column names when we save in Parquet format.
+* Null values are not represented uniformly across all the files as highlighted before. We need to ensure it is taken care while converting our data into Parquet file format.
+* Here are the details about the processors.
+  * ListFile - list the files in the local file system on the server where NiFi is running. Add filter to process the files belonging to **2019**.
+  * UpdateAttribute - capture the original path and file name (without extension) so that we can standardize the naming convention.
+  * FetchFile - fetch the files so that the files are converted downstream to JSON and placed in HDFS.
+  * UnpackContent - as files are zipped, we need to unzip before we convert the file format.
+  * RouteOnAttribute - to ignore system folders or files (folders with name **__MACOSX**)
+  * ConvertRecord - processor to convert each and every record in input file to target format (Parquet)
+    * We will use the Avro Schema instead of using Header for Schema. Avro Schema will be defined as a variable with in the processor group.
+    * We will have 2 ConvertRecord Processors to deal with 2 types of Null values.
+  * UpdateAttribute - to set the filename with appropriate file name and right extension.
+  * PutHDFS - to place the files in HDFS.
