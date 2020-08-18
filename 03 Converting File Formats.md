@@ -42,7 +42,7 @@ We might get files from different source systems using different File Formats in
 * If we get the data in text file format with header, we can leverage the header to infer the column names while converting the file formats.
   
 ## Setup and Analyze Data
-We will use citibike data set on top of retail_db data set for this session. You can get citibike data set from this [location](https://s3.amazonaws.com/tripdata/index.html).
+We will use citibike data set for this session. You can get citibike data set from this [location](https://s3.amazonaws.com/tripdata/index.html).
 * We can use `wget` to download the data.
 * You can find that there are 2 patterns to the data set. We can build wget command using range of months rather than downloading one file at a time.
   * yyyyMM-citibike-tripdata.zip -> 20{13..16}{01..12}-citibike-tripdata.zip
@@ -188,7 +188,7 @@ Here is the code snippet using Scala.
 ```
 trips = spark.
     read.
-    json("/user/training/json/citibike/trips/2019*')
+    json("/user/training/json/citibike/trips/2019*")
 trips.printSchema
 trips.count
 trips.show
@@ -227,3 +227,22 @@ Parquet is one of the industry standard file format that is used in Data Lakes o
     * We will have 2 ConvertRecord Processors to deal with 2 types of Null values.
   * UpdateAttribute - to set the filename with appropriate file name and right extension.
   * PutHDFS - to place the files in HDFS.
+Let us validated by reading the data using Pyspark.
+```
+trips = spark. \
+    read. \
+    parquet('/user/training/parquet/citibike/trips/2019*')
+trips.printSchema()
+trips.count()
+trips.show()
+```
+
+Here is the code snippet using Scala.
+```
+trips = spark.
+    read.
+    parquet("/user/training/parquet/citibike/trips/2019*")
+trips.printSchema
+trips.count
+trips.show
+```
