@@ -186,7 +186,7 @@ trips.show()
 
 Here is the code snippet using Scala.
 ```
-trips = spark.
+val trips = spark.
     read.
     json("/user/training/json/citibike/trips/2019*")
 trips.printSchema
@@ -231,7 +231,7 @@ Let us validated by reading the data using Pyspark.
 ```
 trips = spark. \
     read. \
-    parquet('/user/training/parquet/citibike/trips/2019*')
+    parquet('/user/centos/parquet/citibike/trips/2014*')
 trips.printSchema()
 trips.count()
 trips.show()
@@ -239,9 +239,9 @@ trips.show()
 
 Here is the code snippet using Scala.
 ```
-trips = spark.
+val trips = spark.
     read.
-    parquet("/user/training/parquet/citibike/trips/2019*")
+    parquet("/user/centos/parquet/citibike/trips/2014*")
 trips.printSchema
 trips.count
 trips.show
