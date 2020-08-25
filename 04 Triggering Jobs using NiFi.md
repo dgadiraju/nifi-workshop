@@ -80,4 +80,4 @@ Let us understand how to use Wait and Notify to develop conditional flows. Here 
 * Release Signal Identifier: **wait.filename**. It is created using **filename** from **GenerateFlowfile**.
 * Signal Counter Name: **files.copied**. It will be automatically incremented by **Notify** whenever the files are copied.
 * When **files.copied** is equal to **file.count**, then the partition will be added.
-* We need to configure **DistributedMapCacheClientService** for **Wait** and **Notify**.
+* We need to configure both **DistributedMapCacheServer** and **DistributedMapCacheClientService** for **Wait** and **Notify**.
